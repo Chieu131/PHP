@@ -23,7 +23,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 
                 // Retrieve individual field value
                 $name = $row["name"];
-                $address = $row["PhoneNumber"];
+                $PhoneNumber = $row["PhoneNumber"];
             } else{
                 // URL doesn't contain valid id parameter. Redirect to error page
                 header("location: error.php");
