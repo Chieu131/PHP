@@ -3,8 +3,9 @@
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$name_err = $PhoneNumber_err =  "";
-$name = $PhoneNumber =  "";
+$name = $PhoneNumber = "";
+$name_err = $PhoneNumber_err = "";
+
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -18,6 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $name = $input_name;
     }
+    
     $input_PhoneNumber = trim($_POST["PhoneNumber"]);
     if(empty($input_PhoneNumber)){
         $PhoneNumber_err = "Please enter an PhoneNumber.";
@@ -28,11 +30,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($name_err) && empty($PhoneNumber_err)){
     // Prepare an insert statement
-    $sql = "INSERT INTO contacts (name, PhoneNumber, ) VALUES (?, ?)";
+    $sql = "INSERT INTO contacts (name, PhoneNumber) VALUES (?, ?)";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "ss", $param_name, $param_PhoneNumber, );
+        mysqli_stmt_bind_param($stmt, "ss", $param_name, $param_PhoneNumber);
         
         // Set parameters
         $param_name = $name;
