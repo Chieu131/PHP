@@ -39,15 +39,14 @@
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
-                                echo "<thead>";
+                                echo "<head>";
                                     echo"<tr>";
                                         echo "<th>#</th>";
                                         echo "<th>Name</th>";
                                         echo "<th>PhoneNumber</th>";
-                                        echo "<th>Action</th>";
                                     echo"</tr>";
-                                echo"</thead>";
-                                echo"<tbody>";
+                                echo"</head>";
+                                echo"<body>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
                                         echo "<td>". $row['id'] . "</td>";
@@ -58,9 +57,9 @@
                                             echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
                                             echo "<a href='delete.php?id=".$row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
                                         echo "</td>";
-                                    echo "</tr>";
                                 }
-                                echo "</tbody>";
+                                    echo "</tr>";
+                                echo "</body>";
                             echo "</table>";
                             mysqli_free_result($result);
                         } else{
